@@ -28,5 +28,5 @@ public interface OperationFacadeLocal {
 
     List<Operation> findRange(int[] range);
 
-    int count();   
+    int count();
 }

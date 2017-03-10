@@ -15,7 +15,7 @@ import javax.ejb.Stateless;
  * @author Benco
  */
 @Stateless
-public class GestionClient implements GestionClientLocal {
+public class GestionProduit implements GestionProduitLocal {
 
     @EJB
     private ClientFacadeLocal clientFacade;

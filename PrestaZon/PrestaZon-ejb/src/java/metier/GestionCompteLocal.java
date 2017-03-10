@@ -13,10 +13,16 @@ import javax.ejb.Local;
  */
 @Local
 public interface GestionCompteLocal {
+
     void create(String nom, String prenom, double somme);
+
     void debiter(int id, double s);
+
     void crediter(int id, double s);
+
     void virement(int idOri, int idDest, double s);
+
     void cloturer(int id);
+
     void consulter(int id);
 }

@@ -31,14 +31,14 @@ public interface CompteFacadeLocal {
     List<Compte> findRange(int[] range);
 
     int count();
-    
+
     void crediter(Compte c, double s, String type);
-    
+
     void debiter(Compte c, double s, String type) throws SoldeInsuffisantException;
-    
+
     void virementplus(Compte c, double s, String type) throws SoldeInsuffisantException;
-    
+
     void virementmoins(Compte c, double s, String type) throws SoldeInsuffisantException;
-    
+
     Position consulterPosition(Compte c);
 }

@@ -21,6 +21,7 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Client implements Serializable {
+
     private String nom;
     private String prenom;
     private static final long serialVersionUID = 1L;
@@ -28,39 +29,46 @@ public class Client implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
-    @JoinColumn (name = "Compte.id")
+    @JoinColumn(name = "Compte.id")
     private ArrayList<Compte> lesComptes;
 
-    public Client(){      
+    public Client() {
     }
-    public Client(String n, String p){
+
+    public Client(String n, String p) {
         this.nom = n;
         this.prenom = p;
         this.lesComptes = new ArrayList<>();
     }
-    
+
     public void setNom(String nom) {
         this.nom = nom;
     }
+
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+
     public void setLesComptes(ArrayList<Compte> lesComptes) {
         this.lesComptes = lesComptes;
     }
+
     public String getNom() {
         return nom;
     }
+
     public String getPrenom() {
         return prenom;
     }
+
     public List<Compte> getLesComptes() {
         return lesComptes;
     }
-    
+
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -71,6 +79,7 @@ public class Client implements Serializable {
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -83,8 +92,9 @@ public class Client implements Serializable {
         }
         return true;
     }
+
     @Override
     public String toString() {
         return "entites.Client[ id=" + id + " ]";
-    }    
+    }
 }

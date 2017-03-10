@@ -12,7 +12,7 @@ import javax.ejb.Local;
  * @author Benco
  */
 @Local
-public interface GestionClientLocal {
+public interface GestionCommandeLocal {
 
     void create(String nom, String prenom);
 }

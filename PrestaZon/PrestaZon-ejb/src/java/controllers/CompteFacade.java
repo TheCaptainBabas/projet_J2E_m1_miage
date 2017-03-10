@@ -38,17 +38,19 @@ public class CompteFacade extends AbstractFacade<Compte> implements CompteFacade
 
     @Override
     public void crediter(Compte c, double s, String type) {
-       c.setSolde(c.getSolde() + s);
-       Operation op = new Operation(new Date(), type, c, s);
-       this.operationFacade.create(op);   
+        c.setSolde(c.getSolde() + s);
+        Operation op = new Operation(new Date(), type, c, s);
+        this.operationFacade.create(op);
     }
 
     @Override
     public void debiter(Compte c, double s, String type) throws SoldeInsuffisantException {
-        if(c.getSolde() < s) throw new SoldeInsuffisantException();
+        if (c.getSolde() < s) {
+            throw new SoldeInsuffisantException();
+        }
         c.setSolde(c.getSolde() - s);
         Operation op = new Operation(new Date(), type, c, s);
-        this.operationFacade.create(op);  
+        this.operationFacade.create(op);
     }
 
     @Override
@@ -63,7 +65,7 @@ public class CompteFacade extends AbstractFacade<Compte> implements CompteFacade
 
     @Override
     public Position consulterPosition(Compte c) {
-       return new Position(c.getSolde(), new Date());
+        return new Position(c.getSolde(), new Date());
     }
-    
+
 }

@@ -5,7 +5,7 @@
  */
 package controllers;
 
-import entites.Operation;
+import entites.Commande;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,9 +15,9 @@ import javax.persistence.PersistenceContext;
  * @author Benco
  */
 @Stateless
-public class OperationFacade extends AbstractFacade<Operation> implements OperationFacadeLocal {
+public class CommandeFacade extends AbstractFacade<Commande> implements CommandeFacadeLocal {
 
-    @PersistenceContext(unitName = "TP1_-_Banque-ejbPU")
+    @PersistenceContext(unitName = "PrestaZon-ejbPU")
     private EntityManager em;
 
     @Override
@@ -25,8 +25,8 @@ public class OperationFacade extends AbstractFacade<Operation> implements Operat
         return em;
     }
 
-    public OperationFacade() {
-        super(Operation.class);
+    public CommandeFacade() {
+        super(Commande.class);
     }
 
 }

@@ -26,7 +26,7 @@ public class GestionCompte implements GestionCompteLocal {
     private ClientFacadeLocal clientFacade;
     @EJB
     private CompteFacadeLocal compteFacade;
-    
+
     @Override
     public void create(String nom, String prenom, double s) {
         Client c = clientFacade.findByName(nom, prenom);
@@ -64,14 +64,14 @@ public class GestionCompte implements GestionCompteLocal {
 
     @Override
     public void cloturer(int id) {
-         Compte c= compteFacade.find(id);
-         //compteFacade.cloturer(c);
+        Compte c = compteFacade.find(id);
+        //compteFacade.cloturer(c);
     }
 
     @Override
     public void consulter(int id) {
-       Compte c= compteFacade.find(id);
-       compteFacade.consulterPosition(c);
+        Compte c = compteFacade.find(id);
+        compteFacade.consulterPosition(c);
     }
 
     // Add business logic below. (Right-click in editor and choose

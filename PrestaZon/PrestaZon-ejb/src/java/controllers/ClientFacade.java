@@ -31,7 +31,7 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
 
     @Override
     public Client findByName(String nom, String prenom) {
-        return (Client)em.createQuery("select c from Client.c where c.nom = :nom and c.prenom = :prenom")
+        return (Client) em.createQuery("select c from Client.c where c.nom = :nom and c.prenom = :prenom")
                 .setParameter("nom", nom)
                 .setParameter("prenom", prenom)
                 .getSingleResult();

@@ -5,7 +5,7 @@
  */
 package controllers;
 
-import entites.Client;
+import entites.Commande;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,21 +14,20 @@ import javax.ejb.Local;
  * @author Benco
  */
 @Local
-public interface ClientFacadeLocal {
+public interface CommandeFacadeLocal {
 
-    void create(Client client);
+    void create(Commande commande);
 
-    void edit(Client client);
+    void edit(Commande commande);
 
-    void remove(Client client);
+    void remove(Commande commande);
 
-    Client find(Object id);
+    Commande find(Object id);
 
-    List<Client> findAll();
+    List<Commande> findAll();
 
-    List<Client> findRange(int[] range);
+    List<Commande> findRange(int[] range);
 
     int count();
 
-    Client findByName(String nom, String prenom);
 }
