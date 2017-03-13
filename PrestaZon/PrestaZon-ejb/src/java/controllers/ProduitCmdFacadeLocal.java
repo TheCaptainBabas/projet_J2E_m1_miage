@@ -5,7 +5,7 @@
  */
 package controllers;
 
-import entites.Operation;
+import entites.Client;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,19 +14,21 @@ import javax.ejb.Local;
  * @author Benco
  */
 @Local
-public interface OperationFacadeLocal {
+public interface ProduitCmdFacadeLocal {
 
-    void create(Operation operation);
+    void create(Client client);
 
-    void edit(Operation operation);
+    void edit(Client client);
 
-    void remove(Operation operation);
+    void remove(Client client);
 
-    Operation find(Object id);
+    Client find(Object id);
 
-    List<Operation> findAll();
+    List<Client> findAll();
 
-    List<Operation> findRange(int[] range);
+    List<Client> findRange(int[] range);
 
     int count();
+
+    Client findByName(String nom, String prenom);
 }

@@ -5,7 +5,7 @@
  */
 package metier;
 
-import E.SoldeInsuffisantException;
+import exceptions.SoldeInsuffisantException;
 import controllers.ClientFacadeLocal;
 import controllers.CompteFacadeLocal;
 import entites.Client;

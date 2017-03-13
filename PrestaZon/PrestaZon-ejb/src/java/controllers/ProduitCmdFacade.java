@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author Benco
  */
 @Stateless
-public class ClientFacade extends AbstractFacade<Client> implements ClientFacadeLocal {
+public class ProduitCmdFacade extends AbstractFacade<Client> implements ProduitCmdFacadeLocal {
 
     @PersistenceContext(unitName = "PrestaZon-ejbPU")
     private EntityManager em;
@@ -25,7 +25,7 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
         return em;
     }
 
-    public ClientFacade() {
+    public ProduitCmdFacade() {
         super(Client.class);
     }
 

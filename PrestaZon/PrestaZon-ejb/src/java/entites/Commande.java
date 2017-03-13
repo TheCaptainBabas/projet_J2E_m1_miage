@@ -6,10 +6,13 @@
 package entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -22,6 +25,23 @@ public class Commande implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private float montant;
+    private boolean finalise;
+    private boolean livre;
+    @ManyToOne
+    @JoinColumn(name = "Produit.id")
+    private ArrayList<Produit> lesProduits;
+
+    public Commande() {
+
+    }
+
+    public Commande(float m) {
+        this.montant = m;
+        this.finalise = false;
+        this.livre = false;
+        this.lesProduits = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;

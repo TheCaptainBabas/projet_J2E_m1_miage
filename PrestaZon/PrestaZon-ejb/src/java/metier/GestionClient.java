@@ -21,8 +21,8 @@ public class GestionClient implements GestionClientLocal {
     private ClientFacadeLocal clientFacade;
 
     @Override
-    public void create(String n, String p) {
-        Client c = new Client(n, p);
+    public void create(String n, String p, String e, String a, String cp, String mdp) {
+        Client c = new Client(n, p, e, a, cp, mdp);
         clientFacade.create(c);
     }
     // Add business logic below. (Right-click in editor and choose

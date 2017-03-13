@@ -22,18 +22,15 @@ import javax.persistence.OneToMany;
 @Entity
 public class Compte implements Serializable {
 
-    private double solde;
-    @OneToMany
-    @JoinColumn(name = "Operation.id")
-    private ArrayList<Operation> lesOperations;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private double solde;
+    private boolean ouvert;
     @ManyToOne
     @JoinColumn(name = "Client.id")
     private Client leClient;
-    private boolean cloturer;
 
     public Compte() {
 
@@ -42,8 +39,7 @@ public class Compte implements Serializable {
     public Compte(double somme, Client c) {
         this.solde = somme;
         this.leClient = c;
-        this.lesOperations = new ArrayList<Operation>();
-        this.cloturer = false;
+        this.ouvert = true;
     }
 
     public Long getId() {
@@ -61,11 +57,7 @@ public class Compte implements Serializable {
     public void setSolde(double s) {
         this.solde = s;
     }
-
-    public ArrayList<Operation> getlesOperations() {
-        return this.lesOperations;
-    }
-
+    
     public Client getClient() {
         return leClient;
     }

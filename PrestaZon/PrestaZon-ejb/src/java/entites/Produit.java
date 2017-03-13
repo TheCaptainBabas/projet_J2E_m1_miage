@@ -22,6 +22,21 @@ public class Produit implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String libelle;
+    private float prix;
+    private int stock;
+    private Commande laCommande;
+
+    public Produit() {
+
+    }
+
+    public Produit(String l, float p, int s, Commande c) {
+        this.libelle = l;
+        this.prix = p;
+        this.stock = s;
+        this.laCommande = c;
+    }
 
     public Long getId() {
         return id;
