@@ -22,8 +22,7 @@ public class GestionCommande implements GestionCommandeLocal {
 
     @Override
     public void create(String n, String p) {
-        Client c = new Client(n, p);
-        clientFacade.create(c);
+        clientFacade.findByName(n, p);
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

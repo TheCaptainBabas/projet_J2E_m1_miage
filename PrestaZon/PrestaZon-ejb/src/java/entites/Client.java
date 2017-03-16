@@ -22,23 +22,37 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Client implements Serializable {
 
-    private String nom;
-    private String prenom;
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String nom;
+    private String prenom;
+    private String email;
+    private String adresse;
+    private String cp;
+    private String motDePasse;
+    private boolean actif;
+    private static final long serialVersionUID = 1L;
     @ManyToOne
     @JoinColumn(name = "Compte.id")
     private ArrayList<Compte> lesComptes;
+    @ManyToOne
+    @JoinColumn(name = "Commande.id")
+    private ArrayList<Commande> lesCommandes;
 
     public Client() {
     }
 
-    public Client(String n, String p) {
+    public Client(String n, String p, String e, String a, String c, String mdp) {
         this.nom = n;
         this.prenom = p;
+        this.email = e;
+        this.adresse = a;
+        this.cp = c;
+        this.motDePasse = mdp;
         this.lesComptes = new ArrayList<>();
+        this.lesCommandes = new ArrayList<>();
+        this.actif = true;
     }
 
     public void setNom(String nom) {
@@ -51,6 +65,10 @@ public class Client implements Serializable {
 
     public void setLesComptes(ArrayList<Compte> lesComptes) {
         this.lesComptes = lesComptes;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -67,10 +85,6 @@ public class Client implements Serializable {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @Override

@@ -14,5 +14,5 @@ import javax.ejb.Local;
 @Local
 public interface GestionProduitLocal {
 
-    void create(String nom, String prenom);
+    void create(String n, String p, String e, String a, String cp, String mdp);
 }

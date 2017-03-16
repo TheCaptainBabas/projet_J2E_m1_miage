@@ -5,11 +5,10 @@
  */
 package controllers;
 
-import E.SoldeInsuffisantException;
+import exceptions.SoldeInsuffisantException;
 import entites.Compte;
 import java.util.List;
 import javax.ejb.Local;
-import utl.Position;
 
 /**
  *
@@ -40,5 +39,5 @@ public interface CompteFacadeLocal {
 
     void virementmoins(Compte c, double s, String type) throws SoldeInsuffisantException;
 
-    Position consulterPosition(Compte c);
+    double consulterPosition(Compte c);
 }
