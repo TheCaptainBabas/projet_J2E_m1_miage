@@ -27,4 +27,27 @@ public class GestionClient implements GestionClientLocal {
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    @Override
+    public void remove(String n, String p) {
+        Client c = clientFacade.findByName(n, p);
+        clientFacade.remove(c); 
+    }
+
+    @Override
+    public Client findClient(String n, String p) {
+        Client c = clientFacade.findByName(n, p);
+        return c;
+    }
+
+    @Override
+    public Client findByID(int ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int connexion(String identifiant, String mdp) {
+        //a implémenter
+        return 1;
+    }
 }
