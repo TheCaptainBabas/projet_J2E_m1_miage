@@ -9,6 +9,7 @@ import controllers.CommandeFacadeLocal;
 import controllers.ProduitCmdFacadeLocal;
 import controllers.ProduitFacadeLocal;
 import entites.Commande;
+import entites.Produit;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -31,22 +32,30 @@ public class GestionCommande implements GestionCommandeLocal {
     }
 
     @Override
-    public void livrerCommande() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void livrerCommande(String ref) {
+        Commande c = commandeFacade.findByRef(ref);
+        if (vérifierCommande(ref)) {
+            c.setLivre(true);
+        }
     }
 
     @Override
-    public void vérifierCommande() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean vérifierCommande(String ref) {
+        Commande c = commandeFacade.findByRef(ref);
+        return c.isPaye();
     }
 
     @Override
-    public void payerCommande() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void payerCommande(String ref) {
+        Commande c = commandeFacade.findByRef(ref);
+        c.setPaye(true);
     }
 
     @Override
-    public void ajouterProduit(Long idCommande, Long idProduit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void ajouterProduit(String ref, Long idProduit) {
+        Commande c = commandeFacade.findByRef(ref);
+        Produit p = ProduitFacade.find(idProduit);
+        c.ajouterProduit(p);
+        ProduitCmdFacade.create(c, p, 0);
     }
 }

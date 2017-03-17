@@ -26,8 +26,48 @@ public class Commande implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String ref;
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    public void setMontant(float montant) {
+        this.montant = montant;
+    }
+
+    public void setPaye(boolean paye) {
+        this.payé = paye;
+    }
+
+    public void setLivre(boolean livre) {
+        this.livre = livre;
+    }
+
+    public void setLesProduits(ArrayList<Produit> lesProduits) {
+        this.lesProduits = lesProduits;
+    }
     private float montant;
-    private boolean finalise;
+    private boolean payé;
+
+    public String getRef() {
+        return ref;
+    }
+
+    public float getMontant() {
+        return montant;
+    }
+
+    public boolean isPaye() {
+        return payé;
+    }
+
+    public boolean isLivre() {
+        return livre;
+    }
+
+    public ArrayList<Produit> getLesProduits() {
+        return lesProduits;
+    }
     private boolean livre;
     @ManyToOne
     @JoinColumn(name = "Produit.id")
@@ -40,7 +80,7 @@ public class Commande implements Serializable {
     public Commande(String r, float m) {
         this.ref = r;
         this.montant = m;
-        this.finalise = false;
+        this.payé = false;
         this.livre = false;
         this.lesProduits = new ArrayList<>();
     }
@@ -78,4 +118,7 @@ public class Commande implements Serializable {
         return "entites.Commande[ id=" + id + " ]";
     }
 
+    public void ajouterProduit(Produit p) {
+        this.lesProduits.add(p);
+    }
 }

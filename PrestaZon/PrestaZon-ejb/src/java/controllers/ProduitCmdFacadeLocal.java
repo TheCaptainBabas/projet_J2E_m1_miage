@@ -32,4 +32,6 @@ public interface ProduitCmdFacadeLocal {
     List<ProduitCmd> findRange(int[] range);
 
     int count();
+    
+    ProduitCmd findByRefAndId(String ref, Long idProduit);
 }

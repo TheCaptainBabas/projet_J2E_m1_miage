@@ -16,11 +16,11 @@ public interface GestionCommandeLocal {
 
     void create(String r, float m);
 
-    void livrerCommande();
+    void livrerCommande(String ref);
 
-    void vérifierCommande();
+    boolean vérifierCommande(String ref);
 
-    void payerCommande();
+    void payerCommande(String ref);
 
-    void ajouterProduit(Long idCommande, Long idProduit);
+    void ajouterProduit(String ref, Long idProduit);
 }

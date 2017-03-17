@@ -6,6 +6,7 @@
 package controllers;
 
 import entites.Commande;
+import entites.Produit;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -30,4 +31,5 @@ public interface CommandeFacadeLocal {
 
     int count();
 
+    Commande findByRef(String ref);
 }

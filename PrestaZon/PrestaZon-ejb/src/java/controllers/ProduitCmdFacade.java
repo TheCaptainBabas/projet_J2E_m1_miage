@@ -46,4 +46,12 @@ public class ProduitCmdFacade extends AbstractFacade<ProduitCmd> implements Prod
     public void remove(Commande commande, Produit produit) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public ProduitCmd findByRefAndId(String ref, Long idProduit) {
+       return (ProduitCmd) em.createQuery("select pc from ProduitCmd.pc where pc.ref = :ref and pc.leProduit = :idProduit")
+                .setParameter("ref", ref)
+                .setParameter("idProduit", idProduit)
+                .getSingleResult();
+    }
 }

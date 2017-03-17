@@ -44,12 +44,7 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
                 .setParameter("mdp", mdp)
                 .getSingleResult();
         
-        if (res > 0){
-            return true;
-        }
-        else {
-                return false;
-        }
+        return res > 0;
     }
     
 }

@@ -31,23 +31,10 @@ public class CommandeFacade extends AbstractFacade<Commande> implements Commande
     }
 
     @Override
-    public void livrerCommande() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void vérifierCommande() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void payerCommande() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void ajouterProduit(Produit p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Commande findByRef(String ref) {
+        return (Commande) em.createQuery("select c from Commande.c where c.ref = :ref")
+                .setParameter("ref", ref)
+                .getSingleResult();
     }
 
 }
