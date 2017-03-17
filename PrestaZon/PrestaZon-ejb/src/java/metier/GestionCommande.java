@@ -5,8 +5,10 @@
  */
 package metier;
 
-import controllers.ClientFacadeLocal;
-import entites.Client;
+import controllers.CommandeFacadeLocal;
+import controllers.ProduitCmdFacadeLocal;
+import controllers.ProduitFacadeLocal;
+import entites.Commande;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -18,12 +20,33 @@ import javax.ejb.Stateless;
 public class GestionCommande implements GestionCommandeLocal {
 
     @EJB
-    private ClientFacadeLocal clientFacade;
+    private CommandeFacadeLocal commandeFacade;
+    private ProduitFacadeLocal ProduitFacade;
+    private ProduitCmdFacadeLocal ProduitCmdFacade;
 
     @Override
-    public void create(String n, String p) {
-        clientFacade.findByName(n, p);
+    public void create(String ref, float montant) {
+        Commande commande = new Commande(ref, montant);
+        commandeFacade.create(commande);
     }
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+
+    @Override
+    public void livrerCommande() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void vérifierCommande() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void payerCommande() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void ajouterProduit(Long idCommande, Long idProduit) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

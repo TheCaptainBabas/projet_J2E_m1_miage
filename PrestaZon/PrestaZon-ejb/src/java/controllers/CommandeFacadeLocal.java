@@ -6,7 +6,6 @@
 package controllers;
 
 import entites.Commande;
-import entites.Produit;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -30,13 +29,5 @@ public interface CommandeFacadeLocal {
     List<Commande> findRange(int[] range);
 
     int count();
-
-    void livrerCommande();
-
-    void vérifierCommande();
-
-    void payerCommande();
-    
-    void ajouterProduit(Produit p);
 
 }

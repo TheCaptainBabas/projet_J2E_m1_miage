@@ -14,5 +14,13 @@ import javax.ejb.Local;
 @Local
 public interface GestionCommandeLocal {
 
-    void create(String n, String p);
+    void create(String r, float m);
+
+    void livrerCommande();
+
+    void vérifierCommande();
+
+    void payerCommande();
+
+    void ajouterProduit(Long idCommande, Long idProduit);
 }

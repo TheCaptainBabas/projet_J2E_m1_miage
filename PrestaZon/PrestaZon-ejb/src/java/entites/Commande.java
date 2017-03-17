@@ -25,6 +25,7 @@ public class Commande implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String ref;
     private float montant;
     private boolean finalise;
     private boolean livre;
@@ -36,7 +37,8 @@ public class Commande implements Serializable {
 
     }
 
-    public Commande(float m) {
+    public Commande(String r, float m) {
+        this.ref = r;
         this.montant = m;
         this.finalise = false;
         this.livre = false;
