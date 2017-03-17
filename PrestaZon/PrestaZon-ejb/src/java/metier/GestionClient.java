@@ -25,6 +25,28 @@ public class GestionClient implements GestionClientLocal {
         Client c = new Client(n, p, e, a, cp, mdp);
         clientFacade.create(c);
     }
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+
+    @Override
+    public void remove(String n, String p) {
+        Client c = clientFacade.findByName(n, p);
+        clientFacade.remove(c); 
+    }
+
+    @Override
+    public Client findByName(String n, String p) {
+        Client c = clientFacade.findByName(n, p);
+        return c;
+    }
+
+    @Override
+    public Client findByID(Long ID) {
+        Client c = clientFacade.find(ID);
+        return c;
+    }
+
+    @Override
+    public boolean connexion(String identifiant, String mdp) {
+        boolean cnx = clientFacade.connexion(identifiant, mdp);
+        return cnx;
+    }
 }

@@ -5,7 +5,10 @@
  */
 package controllers;
 
-import entites.Client;
+import entites.Commande;
+import entites.Produit;
+import entites.ProduitCmd;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +18,7 @@ import javax.persistence.PersistenceContext;
  * @author Benco
  */
 @Stateless
-public class ProduitCmdFacade extends AbstractFacade<Client> implements ProduitCmdFacadeLocal {
+public class ProduitCmdFacade extends AbstractFacade<ProduitCmd> implements ProduitCmdFacadeLocal {
 
     @PersistenceContext(unitName = "PrestaZon-ejbPU")
     private EntityManager em;
@@ -26,14 +29,21 @@ public class ProduitCmdFacade extends AbstractFacade<Client> implements ProduitC
     }
 
     public ProduitCmdFacade() {
-        super(Client.class);
+        super(ProduitCmd.class);
     }
 
     @Override
-    public Client findByName(String nom, String prenom) {
-        return (Client) em.createQuery("select c from Client.c where c.nom = :nom and c.prenom = :prenom")
-                .setParameter("nom", nom)
-                .setParameter("prenom", prenom)
-                .getSingleResult();
+    public void create(Commande commande, Produit produit, int quantite) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void edit(Commande commande, Produit produit, int quantite) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void remove(Commande commande, Produit produit) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

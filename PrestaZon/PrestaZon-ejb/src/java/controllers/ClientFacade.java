@@ -36,4 +36,20 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
                 .setParameter("prenom", prenom)
                 .getSingleResult();
     }
+
+    @Override
+    public boolean connexion(String identifiant, String mdp) {
+        int res = (int) em.createQuery("select count(*) from Client.c where c.email = :identifiant and c.motDePasse = :mdp")
+                .setParameter("identifiant", identifiant)
+                .setParameter("mdp", mdp)
+                .getSingleResult();
+        
+        if (res > 0){
+            return true;
+        }
+        else {
+                return false;
+        }
+    }
+    
 }

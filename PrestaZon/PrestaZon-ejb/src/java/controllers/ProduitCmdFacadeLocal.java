@@ -5,7 +5,10 @@
  */
 package controllers;
 
-import entites.Client;
+
+import entites.Commande;
+import entites.Produit;
+import entites.ProduitCmd;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -16,19 +19,17 @@ import javax.ejb.Local;
 @Local
 public interface ProduitCmdFacadeLocal {
 
-    void create(Client client);
+    void create(Commande commande, Produit produit, int quantite);
 
-    void edit(Client client);
+    void edit(Commande commande, Produit produit, int quantite);
 
-    void remove(Client client);
+    void remove(Commande commande, Produit produit);
 
-    Client find(Object id);
+    ProduitCmd find(Object id);
 
-    List<Client> findAll();
+    List<ProduitCmd> findAll();
 
-    List<Client> findRange(int[] range);
+    List<ProduitCmd> findRange(int[] range);
 
     int count();
-
-    Client findByName(String nom, String prenom);
 }
