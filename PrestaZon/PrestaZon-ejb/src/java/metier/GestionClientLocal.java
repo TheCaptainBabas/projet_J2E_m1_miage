@@ -19,9 +19,9 @@ public interface GestionClientLocal {
     
     void remove (String n, String p);
     
-    Client findClient (String n, String p);
+    Client findByName (String n, String p);
     
-    Client findByID (int ID);
+    Client findByID (Long ID);
     
-    int connexion (String identifiant, String mdp); /*identifiant = email*/
+    boolean connexion (String identifiant, String mdp); /*identifiant = email*/
 }

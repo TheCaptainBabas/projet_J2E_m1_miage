@@ -31,4 +31,6 @@ public interface ClientFacadeLocal {
     int count();
 
     Client findByName(String nom, String prenom);
+    
+    boolean connexion(String identifiant, String mdp);
 }
