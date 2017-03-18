@@ -28,5 +28,12 @@ public class ProduitFacade extends AbstractFacade<Produit> implements ProduitFac
     public ProduitFacade() {
         super(Produit.class);
     }
+    
+    @Override
+    public Produit findByRef(String ref) {
+        return (Produit) em.createQuery("select p from Produit.p where p.ref = :ref")
+                .setParameter("ref", ref)
+                .getSingleResult();
+    }
 
 }

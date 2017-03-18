@@ -5,6 +5,7 @@
  */
 package metier;
 
+import entites.Produit;
 import javax.ejb.Local;
 
 /**
@@ -14,5 +15,17 @@ import javax.ejb.Local;
 @Local
 public interface GestionProduitLocal {
 
-    void create(String n, String p, String e, String a, String cp, String mdp);
+    void create(String r, String l, float p, int s);
+    
+    void modify(String r, String l, float p, int s);
+    
+    void deleteByRef(String ref);
+
+    void deleteById(Long id);
+    
+    Produit findById(Long id);
+    
+    Produit findByRef(String ref);
+    
+    void augmenterStock(String ref, int val);
 }

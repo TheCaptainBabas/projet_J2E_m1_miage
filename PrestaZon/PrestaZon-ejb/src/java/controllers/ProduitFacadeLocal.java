@@ -29,5 +29,7 @@ public interface ProduitFacadeLocal {
     List<Produit> findRange(int[] range);
 
     int count();
+    
+    Produit findByRef(String ref);
 
 }

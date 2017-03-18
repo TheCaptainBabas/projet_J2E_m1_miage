@@ -6,9 +6,11 @@
 package metier;
 
 import controllers.ClientFacadeLocal;
+import controllers.ProduitFacadeLocal;
 import entites.Client;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import entites.Produit;
 
 /**
  *
@@ -18,13 +20,52 @@ import javax.ejb.Stateless;
 public class GestionProduit implements GestionProduitLocal {
 
     @EJB
-    private ClientFacadeLocal clientFacade;
+    private ProduitFacadeLocal produitFacade;
 
     @Override
-    public void create(String n, String p, String e, String a, String cp, String mdp) {
-        Client c = new Client(n, p, e, a, cp, mdp);
-        clientFacade.create(c);
+    public void create(String r, String l, float p, int s) {
+        Produit produit = new Produit(r, l, p, s);
+        produitFacade.create(produit);
     }
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+
+    @Override
+    public void modify(String r, String l, float p, int s) {
+        Produit produit = produitFacade.findByRef(r);
+        produit.setLibelle(l);
+        produit.setPrix(p);
+        produit.setStock(s);
+    }
+
+
+    @Override
+    public void augmenterStock(String ref, int val) {
+       Produit produit = produitFacade.findByRef(ref);
+       int stock = produit.getStock();
+       stock = stock + val;
+       produit.setStock(stock);
+    }
+
+    @Override
+    public void deleteByRef(String ref) {
+        Produit produit = produitFacade.findByRef(ref);
+        produitFacade.remove(produit);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        Produit produit = produitFacade.find(id);
+        produitFacade.remove(produit);
+    }
+
+    @Override
+    public Produit findById(Long id) {
+        Produit produit = produitFacade.find(id);
+        return produit;
+    }
+
+    @Override
+    public Produit findByRef(String ref) {
+        Produit produit = produitFacade.findByRef(ref);
+        return produit;
+    }
 }
