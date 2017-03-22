@@ -22,29 +22,59 @@ public class Produit implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String ref;
     private String libelle;
     private float prix;
     private int stock;
-    private Commande laCommande;
+
+
 
     public Produit() {
 
     }
 
-    public Produit(String l, float p, int s, Commande c) {
+    public Produit(String r, String l, float p, int s) {
+        this.ref = r;
         this.libelle = l;
         this.prix = p;
         this.stock = s;
-        this.laCommande = c;
     }
 
     public Long getId() {
         return id;
     }
+    
+    public String getRef() {
+        return ref;
+    }
 
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+    
     public void setId(Long id) {
         this.id = id;
     }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    } 
 
     @Override
     public int hashCode() {

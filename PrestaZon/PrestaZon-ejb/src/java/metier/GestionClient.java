@@ -12,7 +12,7 @@ import javax.ejb.Stateless;
 
 /**
  *
- * @author Benco
+ * @author Caro
  */
 @Stateless
 public class GestionClient implements GestionClientLocal {
