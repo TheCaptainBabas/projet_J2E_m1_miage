@@ -3,6 +3,10 @@
 /PrestaZon/PrestaZon-ejb/nbproject/
 /PrestaZon/build/
 /PrestaZon/PrestaZon-war/build/
+<<<<<<< Updated upstream
 /PrestaZon/PrestaZon-war/nbproject/
 
 
+=======
+/PrestaZon/PrestaZon-war/dist/
+>>>>>>> Stashed changes
